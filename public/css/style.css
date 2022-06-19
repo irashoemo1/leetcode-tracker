@@ -1,0 +1,72 @@
+li{
+    list-style: none;
+}
+
+.problemItem{
+    width: 100%;
+    padding-bottom: 2em;
+}
+
+ul.problemItems{
+    display: table;
+    margin-top: 0em;
+}
+
+ul.problemItems > li{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+#heading{
+    margin-bottom: .5em;
+}
+
+#heading > li{
+    display: inline-block;
+    font-size: 1.75em;
+    padding-left: .10em;
+}
+
+h2.problem, h3.pattern, h3.description, span.del{
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+
+.problem{
+    width: 30%;
+}
+
+.pattern{
+    width: 20%;
+}
+
+.description{
+    width: 30%;
+}
+
+h3.description{
+    font-size: 1em;
+}
+
+li span.del{
+    width: 5%;
+    margin-left: 3em;
+}
+
+
+
+/* div{
+    display: inline-block;
+} */
+
+/* #table{
+    display: block;
+    margin-top: 2em;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 5px;
+} */
