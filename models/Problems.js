@@ -12,6 +12,14 @@ const ProblemsSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
+    },
+    date: {
+        type: Date,
+        required: true
+    },
+    link: {
+        type: String,
+        required: false
     }
 })
 

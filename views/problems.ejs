@@ -16,6 +16,8 @@
         <input type="text" placeholder="Enter Problem Item" name="problemItem">
         <input type="text" placeholder="Enter Pattern Type" name="patternType">
         <input type="text" placeholder="Enter Description" name="description">
+        <input type="text" placeholder="Enter Date" name="date">
+        <input type="text" placeholder="Enter Link" name="link">
         <input type="submit">
     </form>
 
@@ -25,15 +27,22 @@
         <li class="problem">Problem</li>
         <li class="pattern">Pattern</li>
         <li class="description">Notes</li>
+        <li class="date">Date</li>
+        <li class="link">Link</li>
     </ul>
 
+    <!-- could add the link to the problems for quick access COMPLETED!!!--> 
+    <!-- also need to add a search function so I can see problems by patterns, date, number, etc -->
     <ul class="problemItems">
         <% problems.forEach(el => { %>
             <li class="problemItem" data-id="<%=el._id%>">
                     <h2 class="problem"><%= el.problem %></h2>
                     <h3 class="pattern"><%= el.pattern %></h3>
                     <h3 class="description"><%= el.description %></h3>
-                    <span class="del">Delete</span>        
+                    <h3 class="date"><%= moment(el.date).format('MMM D, YYYY') %></h3>
+                    <a class="link" href="<%= el.link %>"><%= el.problem %></a>
+                    <span class="del">Delete</span>
+                    <span class="edit">Edit</span>         
             </li>   
         <% }) %>
         </ul>

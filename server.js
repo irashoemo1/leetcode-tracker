@@ -6,9 +6,14 @@ const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
 const problemsRoutes = require('./routes/problems')
 const PORT = 2121;
+const moment = require("moment");
+
+app.use((req, res, next)=>{
+    res.locals.moment = moment;
+    next();
+  });
 
 require('dotenv').config({path: './config/.env'});
-
 
 app.use(cors());
 

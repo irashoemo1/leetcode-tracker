@@ -6,7 +6,7 @@ router.get('/', problemsController.getProblems)
 
 router.post('/createProblems', problemsController.createProblems)
 
-// router.put('/markComplete', todosController.markComplete)
+// router.put('/editProblem', problemsController.editProblem)
 
 // router.put('/markIncomplete', todosController.markIncomplete)
 
