@@ -15,21 +15,32 @@ const patterns = document.querySelectorAll('option')
 //     element.addEventListener('change', getPattern)
 // })
 
-// select.addEventListener('change', event => {
-//     const selectUrl = `problems/${event.target.value}`;
+
+
+// async function pList(){
+//     // const patternName = this.parentNode.childNodes[3].innerText;
 
 //     try{
-//         const response = await fetch(selectUrl, 
+//         const response = await fetch('/', 
 //         {
 //             method: 'get',
-//             headers: {'Accept': 'application/json'}
+//             headers: {'Accept': 'application/json'},
 //         })
-//         const data = response.json()
+//         const data = await response.json();
 //         console.log(data)
+//         // for(let i = 0; i < data.length; i++)
+//         // {
+//         //     const option = document.createElement('option');
+//         //     option.value = problemItems[i].pattern;
+//         //     option.innerText = problemItems[i].pattern;
+//         //     select.appendChild(option)
+//         // }
 //     }catch(error){
 //         console.log(error);
 //     }
-// })
+// }
+
+// pList()
 
 async function deleteProblem(){
     const problemId = this.parentNode.dataset.id;
@@ -76,23 +87,19 @@ async function deleteProblem(){
 // }
 
 
-// async function pList(){
-//     // const patternName = this.parentNode.childNodes[3].innerText;
+
+// select.addEventListener('change', event => {
+//     const selectUrl = `problems/${event.target.value}`;
 
 //     try{
-//         const response = await fetch('problems/')
-//         const data = await response.json();
+//         const response = await fetch(selectUrl, 
+//         {
+//             method: 'get',
+//             headers: {'Accept': 'application/json'}
+//         })
+//         const data = response.json()
 //         console.log(data)
-//         // for(let i = 0; i < data.length; i++)
-//         // {
-//         //     const option = document.createElement('option');
-//         //     option.value = problemItems[i].pattern;
-//         //     option.innerText = problemItems[i].pattern;
-//         //     select.appendChild(option)
-//         // }
 //     }catch(error){
 //         console.log(error);
 //     }
-// }
-
-// pList();
+// })

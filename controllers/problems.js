@@ -4,7 +4,7 @@ module.exports = {
     getProblems: async (request, response) => {
         try{
             let problemItems = await Problems.find();
-            console.log(request.query.patternType)
+            // console.log(request.query.patternType)
             if(request.query.patternType != undefined){
                 problemItems = await Problems.find({pattern: request.query.patternType});
                 // console.log(request)
