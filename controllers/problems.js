@@ -3,8 +3,13 @@ const Problems = require('../models/Problems')
 module.exports = {
     getProblems: async (request, response) => {
         try{
-            const problemItems = await Problems.find();
-        
+            let problemItems = await Problems.find();
+            console.log(request.query.patternType)
+            if(request.query.patternType != undefined){
+                problemItems = await Problems.find({pattern: request.query.patternType});
+                // console.log(request)
+            }
+
             response.render('problems.ejs', {problems: problemItems})
         }catch(error){
             console.log(error)

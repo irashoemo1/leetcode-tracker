@@ -1,6 +1,6 @@
-body, html{
+/* body, html{
     height: 100%;
-}
+} */
 
 li{
     list-style: none;
@@ -34,7 +34,7 @@ ul.problemItems > li{
     padding-left: .10em;
 }
 
-h2.problem, h3.pattern, h3.description, span.del, .date, a.link, .edit{
+h2.problem, h3.pattern, h3.description, span.del, .date, a.link, span.edit{
     display: inline-block;
     margin: 0;
     vertical-align: top;
@@ -59,16 +59,18 @@ h3.description{
 
 .date{
     width: 7.5%;
+    margin-left: 2em;
 }
 
 a.link{
     width: 7.5%;
     height: 100%;
+    margin-left: 2em;
 }
 
-li span.del, .edit{
-    width: 2.5%;
-    margin-left: 2em;
+li span.del, span.edit{
+    /* width: 2.5%; */
+    margin-left: 1em;
 }
 
 
