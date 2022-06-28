@@ -30,6 +30,7 @@
         <button type="submit">Search</button>
     </form> -->
 
+    <!-- Need to make the search bar only the max one -->
     <form action="/problems/" method="GET">
         <select name="patternType" class="patternSelect">
             <option value="patterns" selected>Choose a pattern</option>
@@ -42,6 +43,16 @@
             <% }) %>
         </select>
         <button type="submit">Search</button>
+    </form>
+
+    <form action="/problems/sorted" method="GET">
+        <select name="sortType" class="sortSelect">
+            <option value="nameAsc">Name Ascending</option>
+            <option value="nameDesc">Name Descending</option>
+            <option value="dateAsc">Date Ascending</option>
+            <option value="dateDesc">Date Descending</option>
+        </select>
+        <button type="submit">Sort</button>
     </form>
     
     <h1>Problems completed</h1>

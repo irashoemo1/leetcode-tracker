@@ -4,12 +4,39 @@ module.exports = {
     getProblems: async (request, response) => {
         try{
             let problemItems = await Problems.find();
-            // console.log(request.query.patternType)
+            // let problemItems = await Problems.find().sort({problem: 1});
+            // console.log(request)
             if(request.query.patternType != undefined){
                 problemItems = await Problems.find({pattern: request.query.patternType});
                 // console.log(request)
             }
-
+            response.render('problems.ejs', {problems: problemItems})
+        }catch(error){
+            console.log(error)
+        }
+    },
+    getSortedProblems: async (request, response) => {
+        try{
+            let problemItems;
+            if(request.query.sortType == 'nameAsc' || request.query.sortType == 'nameDesc'){
+                Problems.createIndexes({problem: 1})
+                if(request.query.sortType == 'nameAsc'){
+                    problemItems = await Problems.find().sort({problem: 1});
+                }
+                else{
+                    problemItems = await Problems.find().sort({problem: -1});
+                }    
+            }
+            else if(request.query.sortType == 'dateAsc' || request.query.sortType == 'dateDesc'){
+                Problems.createIndexes({date: 1})
+                if(request.query.sortType == 'dateAsc'){
+                    problemItems = await Problems.find().sort({date: 1});
+                }
+                else{
+                    problemItems = await Problems.find().sort({date: -1});
+                }    
+            }
+            // console.log(request)
             response.render('problems.ejs', {problems: problemItems})
         }catch(error){
             console.log(error)
