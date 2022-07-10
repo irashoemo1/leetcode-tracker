@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- need to put description in, ability to edit and some more sections for text. then create a table so it looks nice -->
+    <!-- Just need to create an editing function with editable content on click of a specific line GOOD!!!
+        make a pagination for the problems, and do bootstrap to make it look better -->
     <h2>Add A Problem:</h2>
     
     <form action="/problems/createProblems" method="POST">
@@ -22,15 +23,7 @@
     </form>
 
     <h2> Filter: </h2>
-    <!-- <button class="patternCheck">click me for dropdown</button> -->
-    <!-- Im thinking that one the click of the options you call one of two getProblems methods from the controller. You click all and it gives
-    the default getProblems method and if you click any other one it gives you a different method that has a parameter in the find -->
-    <!-- <form action="/problems/" method="GET">
-        <input type="text"  placeholder="Enter Pattern" name="patternType">
-        <button type="submit">Search</button>
-    </form> -->
-
-    <!-- Need to make the search bar only the max one -->
+    <!-- Need to make the search bar only the max one might just have to hardcode it-->
     <form action="/problems/" method="GET">
         <select name="patternType" class="patternSelect">
             <option value="patterns" selected>Choose a pattern</option>
@@ -54,6 +47,12 @@
         </select>
         <button type="submit">Sort</button>
     </form>
+
+
+    <!-- <form action="/problems/editProblem" method="PUT">
+        <input type="text" placeholder="Enter Description" name="description">
+        <input type="submit">
+    </form> -->
     
     <h1>Problems completed</h1>
     <ul id="heading">
@@ -64,18 +63,18 @@
         <li class="link">Link</li>
     </ul>
 
-    <!-- could add the link to the problems for quick access COMPLETED!!!--> 
-    <!-- also need to add a search function so I can see problems by patterns, date, number, etc -->
+    <!-- contenteditable="true" -->
     <ul class="problemItems">
         <% problems.forEach(el => { %>
-            <li class="problemItem" data-id="<%=el._id%>">
+            <li contenteditable="false" class="problemItem" data-id="<%=el._id%>">
                     <h2 class="problem"><%= el.problem %></h2>
                     <h3 class="pattern"><%= el.pattern %></h3>
                     <h3 class="description"><%= el.description %></h3>
                     <h3 class="date"><%= moment(el.date).format('MMM D, YYYY') %></h3>
                     <a class="link" href="<%= el.link %>"><%= el.problem %></a>
-                    <span class="del">Delete</span>
-                    <span class="edit">Edit</span>         
+                    <span class="edit">Edit</span>
+                    <span class="stopEdit" class="hidden">Stop</span>   
+                    <span class="del">Delete</span>        
             </li>   
         <% }) %>
     </ul>

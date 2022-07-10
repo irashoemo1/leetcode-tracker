@@ -62,8 +62,18 @@ module.exports = {
             console.log(error)
         } 
     },
-    // // adds link
     // editProblem: async (request, response) => {
+    //     try{
+    //         // console.log(request.body)
+    //         await Problems.findOneAndUpdate({_id: request.body.problemIdS});
+    //         console.log('Edited Task')
+    //         response.json('Edited it')
+    //     }catch(error){
+    //         console.log(error)
+    //     }
+    // }
+    // // adds link
+    // addLink: async (request, response) => {
     //     const problem = request.body.problemNameS;
     //     console.log(request.body)
     //     try{
