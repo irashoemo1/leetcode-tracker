@@ -10,7 +10,8 @@
 </head>
 <body>
     <!-- Just need to create an editing function with editable content on click of a specific line GOOD!!!
-        make a pagination for the problems, and do bootstrap to make it look better -->
+        Make the date filter able to do range of dates, make a pagination for the problems, figure out how to get the patterns
+        to make the sort list to be constant and do bootstrap to make it look better -->
     <h2>Add A Problem:</h2>
     
     <form action="/problems/createProblems" method="POST">
@@ -47,13 +48,12 @@
         </select>
         <button type="submit">Sort</button>
     </form>
-
-
-    <!-- <form action="/problems/editProblem" method="PUT">
-        <input type="text" placeholder="Enter Description" name="description">
-        <input type="submit">
-    </form> -->
     
+    <form action="/problems/" method="GET">
+        <input type="text" placeholder="Enter Page Number" name="page">
+        <button type="submit">Get Page</button>
+    </form>
+
     <h1>Problems completed</h1>
     <ul id="heading">
         <li class="problem">Problem</li>
@@ -63,7 +63,7 @@
         <li class="link">Link</li>
     </ul>
 
-    <!-- contenteditable="true" -->
+    
     <ul class="problemItems">
         <% problems.forEach(el => { %>
             <li contenteditable="false" class="problemItem" data-id="<%=el._id%>">

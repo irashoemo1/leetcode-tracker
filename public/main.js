@@ -3,7 +3,8 @@ const editText = document.querySelectorAll('.edit')
 const stopEditText = document.querySelectorAll('.stopEdit')
 const select = document.querySelector('.patternSelect')
 const patterns = document.querySelectorAll('option')
-// const patternCheck = document.querySelector('.patternCheck').addEventListener('click', pList)
+
+
 // Array.from(deleteText).forEach((element) => {
 //     element.addEventListener('click', deleteProblem)
 // })
@@ -21,32 +22,6 @@ Array.from(stopEditText).forEach((element) => {
 //     element.addEventListener('change', getPattern)
 // })
 
-
-
-// async function pList(){
-//     // const patternName = this.parentNode.childNodes[3].innerText;
-
-//     try{
-//         const response = await fetch('/', 
-//         {
-//             method: 'get',
-//             headers: {'Accept': 'application/json'},
-//         })
-//         const data = await response.json();
-//         console.log(data)
-//         // for(let i = 0; i < data.length; i++)
-//         // {
-//         //     const option = document.createElement('option');
-//         //     option.value = problemItems[i].pattern;
-//         //     option.innerText = problemItems[i].pattern;
-//         //     select.appendChild(option)
-//         // }
-//     }catch(error){
-//         console.log(error);
-//     }
-// }
-
-// pList()
 
 async function deleteProblem(){
     const problemId = this.parentNode.dataset.id;
@@ -83,8 +58,6 @@ async function stopEditProblem(){
     console.log("Stop editting")
     
 }
-
-
 
 
 // select.addEventListener('change', event => {
@@ -126,3 +99,29 @@ async function stopEditProblem(){
 //         console.log(error);
 //     }
 // }
+
+
+// async function pList(){
+//     // const patternName = this.parentNode.childNodes[3].innerText;
+
+//     try{
+//         const response = await fetch('/', 
+//         {
+//             method: 'get',
+//             headers: {'Accept': 'application/json'},
+//         })
+//         const data = await response.json();
+//         console.log(data)
+//         // for(let i = 0; i < data.length; i++)
+//         // {
+//         //     const option = document.createElement('option');
+//         //     option.value = problemItems[i].pattern;
+//         //     option.innerText = problemItems[i].pattern;
+//         //     select.appendChild(option)
+//         // }
+//     }catch(error){
+//         console.log(error);
+//     }
+// }
+
+// pList()
