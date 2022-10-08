@@ -10,6 +10,7 @@
   "author": "Ira Shoemo",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",

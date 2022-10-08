@@ -27,6 +27,10 @@ ul.problemItems > li{
     height: 100%;
 }
 
+h1, h2.add, form, form + h2{
+    padding-left: 40px;
+}
+
 #heading{
     margin-bottom: .5em;
 }
@@ -37,7 +41,7 @@ ul.problemItems > li{
     padding-left: .10em;
 }
 
-h2.problem, h3.pattern, h3.description, span.del, .date, a.link, span.edit{
+h2.problem, h3.pattern, h3.notes, span.del, .date, a.link, span.edit{
     display: inline-block;
     margin: 0;
     vertical-align: top;
@@ -52,11 +56,11 @@ h2.problem, h3.pattern, h3.description, span.del, .date, a.link, span.edit{
     width: 15%;
 }
 
-.description{
+.notes{
     width: 30%;
 }
 
-h3.description{
+h3.notes{
     font-size: 1em;
 }
 
