@@ -1,3 +1,4 @@
+require('dotenv').config({path: './config/.env'});
 const express = require('express')
 const app = express()
 const cors = require('cors');
@@ -12,8 +13,6 @@ app.use((req, res, next)=>{
     res.locals.moment = moment;
     next();
   });
-
-require('dotenv').config({path: './config/.env'});
 
 app.use(cors());
 
