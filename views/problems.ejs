@@ -27,14 +27,15 @@
 
     <h2 class="filter"> Filter: </h2>
     <!-- Need to make the search bar only the max one might just have to hardcode it-->
+    <!-- try to grab the patterns from the database instead of the render -->
     <form class="getProblems" action="/problems/" method="GET">
         <select name="patternType" class="patternSelect">
             <option value="patterns" selected>Choose a pattern</option>
             <% let hashset = new Set() %>
-            <% problems.forEach(el => { %>
-                <% if(!hashset.has(el.pattern)){ %>
-                    <option value="<%= el.pattern %>"><%= el.pattern %></option>
-                    <% hashset.add(el.pattern) %>
+            <% pats.forEach(el => { %>
+                <% if(!hashset.has(el)){ %>
+                    <option value="<%= el %>"><%= el %></option>
+                    <% hashset.add(el) %>
                 <% } %>     
             <% }) %>
         </select>

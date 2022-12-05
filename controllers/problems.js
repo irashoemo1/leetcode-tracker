@@ -26,13 +26,21 @@ module.exports = {
             //     console.log(request.query.page)
             // }
             
-
             let problemItems = await Problems.find().limit(limit).skip((page - 1) * limit);
+            let allProblems = await Problems.find()
+            patterns = []
+            
+            for(let i = 0; i < allProblems.length; i++)
+            {
+                patterns.push(allProblems[i].pattern)
+            }
+
+            // console.log(patterns)
             if(request.query.patternType != undefined){
                 problemItems = await Problems.find({pattern: request.query.patternType});
                 // console.log(request)
             }
-            response.render('problems.ejs', {problems: problemItems})
+            response.render('problems.ejs', {problems: problemItems, pats: patterns})
         }catch(error){
             console.log(error)
         }
