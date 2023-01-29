@@ -75,7 +75,7 @@ module.exports = {
     createProblems: async (request, response) => {
         try{
             await Problems.create({problem: request.body.problemItem, pattern: request.body.patternType,
-            description: request.body.description, date: request.body.date, link: request.body.link})
+            description: request.body.description, date: request.body.date, link: request.body.link, userId: req.user.id})
             console.log('Problem Added')
             response.redirect('/problems')
         }catch(error){
@@ -92,55 +92,4 @@ module.exports = {
             console.log(error)
         } 
     },
-    // // adds link
-    // addLink: async (request, response) => {
-    //     const problem = request.body.problemNameS;
-    //     console.log(request.body)
-    //     try{
-    //         await Problems.findOneAndUpdate({_id: request.body.problemIdS, problem: request.body.problemNameS}, {
-    //             $set: {
-    //                 link: `https://leetcode.com/problems/${problem.replace(/ /g,'-').toLowerCase()}/`}
-    //             })
-    //         console.log('Updated Link')
-    //         response.json('Updated it')
-    //     }
-    //     catch(error){
-    //         console.log(error)
-    //     } 
-    // }
 }
-
-// function paginatedResults(model) {
-//     return async (request, response, next) => {
-//       //const page = parseInt(req.query.page)
-//       //const limit = parseInt(req.query.limit)
-//       const page = 1
-//       const limit = 10
-  
-//       const startIndex = (page - 1) * limit
-//       const endIndex = page * limit
-  
-//       const results = {}
-  
-//       if (endIndex < await model.countDocuments().exec()) {
-//         results.next = {
-//           page: page + 1,
-//           limit: limit
-//         }
-//       }
-      
-//       if (startIndex > 0) {
-//         results.previous = {
-//           page: page - 1,
-//           limit: limit
-//         }
-//       }
-//       try {
-//             results.results = await model.find().limit(limit).skip(startIndex).exec()
-//             response.paginatedResults = results
-//             next()
-//       } catch (e) {
-//         res.status(500).json({ message: e.message })
-//       }
-//     }
-//   }

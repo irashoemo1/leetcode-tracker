@@ -80,18 +80,110 @@ li span.del, span.edit{
     margin-left: .5em;
 }
 
-
-
-/* div{
-    display: inline-block;
-} */
-
-/* #table{
-    display: block;
-    margin-top: 2em;
+.login-signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-th, td{
-    border: 1px solid black;
-    padding: 5px;
-} */
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 18px;
+    background-color: #009579;
+}
+
+.login, .signup{
+    padding: 2em;
+    margin: 1em;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.login{
+    width: 400px;
+    max-width: 400px;
+}
+
+.signup{
+    width: 550px;
+    max-width: 550px;
+}
+
+
+.form > *:first-child{
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.form > *:last-child{
+    margin-bottom: 0;
+}
+
+.form{
+    padding-left: 0;
+}
+
+.form-title{
+    margin-bottom: 2em;
+    text-align: center;
+    /* padding: 0; */
+}
+
+.form-inputgroup{
+    margin-bottom: 1rem;
+}
+
+.form-input{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    outline: none;
+    background-color: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form-input:focus{
+    border-color: #009579;
+    background-color: white;
+}
+
+.form-button{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #009579;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.form-button:hover{
+    background-color: #007f67;
+}
+
+.form-button:active{
+    transform: scale(0.98);
+}
+
+.form-text{
+    text-align: center;
+}
+
+.form-link{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-link:hover{
+    text-decoration: underline;
+}
