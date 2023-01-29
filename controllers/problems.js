@@ -26,8 +26,8 @@ module.exports = {
             //     console.log(request.query.page)
             // }
             
-            let problemItems = await Problems.find().limit(limit).skip((page - 1) * limit);
-            let allProblems = await Problems.find()
+            let problemItems = await Problems.find({userId: request.user.id}).limit(limit).skip((page - 1) * limit);
+            let allProblems = await Problems.find({userId: request.user.id})
             patterns = []
             
             for(let i = 0; i < allProblems.length; i++)

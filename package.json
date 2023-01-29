@@ -10,14 +10,22 @@
   "author": "Ira Shoemo",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.1",
+    "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
     "moment": "^2.29.3",
     "mongodb": "^4.7.0",
     "mongoose": "^6.3.6",
-    "nodemon": "^2.0.16"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "validator": "^13.7.0"
   }
 }

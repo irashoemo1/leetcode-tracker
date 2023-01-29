@@ -20,6 +20,10 @@ const ProblemsSchema = new mongoose.Schema({
     link: {
         type: String,
         required: false
+    },
+    userId: {
+        type: String,
+        required: true
     }
 })
 
