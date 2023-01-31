@@ -74,8 +74,13 @@ module.exports = {
     },
     createProblems: async (request, response) => {
         try{
+            console.log(request.body.problemItem)
+            console.log(request.body.patternType)
+            console.log(request.body)
+            console.log(request.body.date)
+            console.log(request.body.link)
             await Problems.create({problem: request.body.problemItem, pattern: request.body.patternType,
-            description: request.body.description, date: request.body.date, link: request.body.link, userId: req.user.id})
+            description: request.body.description, date: request.body.date, link: request.body.link, userId: request.user.id})
             console.log('Problem Added')
             response.redirect('/problems')
         }catch(error){

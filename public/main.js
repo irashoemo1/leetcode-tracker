@@ -53,20 +53,3 @@ async function stopEditProblem(){
     console.log("Stop editting")
     
 }
-
-
-// select.addEventListener('change', event => {
-//     const selectUrl = `problems/${event.target.value}`;
-
-//     try{
-//         const response = await fetch(selectUrl, 
-//         {
-//             method: 'get',
-//             headers: {'Accept': 'application/json'}
-//         })
-//         const data = response.json()
-//         console.log(data)
-//     }catch(error){
-//         console.log(error);
-//     }
-// })

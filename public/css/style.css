@@ -18,6 +18,8 @@ ul.problemItems{
     display: table;
     margin-top: 0em;
     height: 100%;
+    width: 95%;
+    max-width: 95%;
 }
 
 ul.problemItems > li{
@@ -32,13 +34,16 @@ h1, h2.add, form, form + h2{
 }
 
 #heading{
+    display: table;
     margin-bottom: .5em;
+    width: 95%;
+    max-width: 95%;
 }
 
 #heading > li{
     display: inline-block;
     font-size: 1.75em;
-    padding-left: .10em;
+    padding-left: .15em;
 }
 
 h2.problem, h3.pattern, h3.notes, span.del, .date, a.link, span.edit{
@@ -66,14 +71,18 @@ h3.notes{
 
 .date{
     width: 7.5%;
-    margin-left: 2em;
 }
+
+/* h3.date{
+    margin-left: 1.75em;
+} */
 
 a.link{
     width: 7.5%;
     height: 100%;
-    margin-left: 2em;
+    /* margin-left: 1.5em; */
 }
+
 
 li span.del, span.edit{
     /* width: 2.5%; */
