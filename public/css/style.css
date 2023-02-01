@@ -196,3 +196,20 @@ li span.del, span.edit{
 .form-link:hover{
     text-decoration: underline;
 }
+
+.logout-container{
+    display: flex;
+    justify-content: center;
+}
+
+.logout {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #009579;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

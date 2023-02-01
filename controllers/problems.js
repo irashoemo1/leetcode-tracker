@@ -1,5 +1,8 @@
 const Problems = require('../models/Problems')
 
+let problemItems
+let patterns = []
+let pattern
 module.exports = {
     getProblems: async (request, response) => {
         try{
@@ -26,9 +29,10 @@ module.exports = {
             //     console.log(request.query.page)
             // }
             
-            let problemItems = await Problems.find({userId: request.user.id}).limit(limit).skip((page - 1) * limit);
+            problemItems = await Problems.find({userId: request.user.id}).limit(limit).skip((page - 1) * limit);
             let allProblems = await Problems.find({userId: request.user.id})
             patterns = []
+            uid = request.user.id
             
             for(let i = 0; i < allProblems.length; i++)
             {
@@ -37,7 +41,11 @@ module.exports = {
 
             // console.log(patterns)
             if(request.query.patternType != undefined){
-                problemItems = await Problems.find({pattern: request.query.patternType});
+                pattern = request.query.patternType
+                problemItems = await Problems.find({pattern: request.query.patternType}).limit(limit).skip((page - 1) * limit);
+                if(request.query.patternType == 'patterns'){
+                    problemItems = await Problems.find({userId: request.user.id}).limit(limit).skip((page - 1) * limit)
+                }
                 // console.log(request)
             }
             response.render('problems.ejs', {problems: problemItems, pats: patterns})
@@ -47,38 +55,75 @@ module.exports = {
     },
     getSortedProblems: async (request, response) => {
         try{
-            let problemItems;
-            if(request.query.sortType == 'nameAsc' || request.query.sortType == 'nameDesc'){
-                Problems.createIndexes({problem: 1})
-                if(request.query.sortType == 'nameAsc'){
-                    problemItems = await Problems.find().sort({problem: 1});
-                }
-                else{
-                    problemItems = await Problems.find().sort({problem: -1});
-                }    
+            let {page, limit} = request.query;//might need parseInt()
+            if(!page)
+                page = 1
+            if(!limit)
+                limit = 20
+            
+            let numOfResults = await Problems.countDocuments()
+            let numOfPages = numOfResults / limit
+
+            if(page > numOfPages)
+            {
+                page = numOfPages
             }
-            else if(request.query.sortType == 'dateAsc' || request.query.sortType == 'dateDesc'){
-                Problems.createIndexes({date: 1})
-                if(request.query.sortType == 'dateAsc'){
-                    problemItems = await Problems.find().sort({date: 1});
-                }
-                else{
-                    problemItems = await Problems.find().sort({date: -1});
-                }    
+            else if(page < 1)
+            {
+                page = 1
             }
-            // console.log(request)
-            response.render('problems.ejs', {problems: problemItems})
+            // let problemItems;
+            // console.log(request.user._id.toString())
+            let uid = request.user._id.toString()
+            console.log(uid)
+            if(uid){
+                if(request.query.sortType == 'nameAsc' || request.query.sortType == 'nameDesc'){
+                    Problems.createIndexes({problem: 1})
+                    if(request.query.sortType == 'nameAsc'){
+                        if(pattern == 'patterns' || pattern == undefined){
+                            problemItems = await Problems.find({userId: uid}).sort({problem: 1}).limit(limit).skip((page - 1) * limit);
+                        }
+                        else{
+                            problemItems = await Problems.find({pattern: pattern, userId: uid}).sort({problem: 1}).limit(limit).skip((page - 1) * limit);
+                        }
+                    }
+                    else{
+                        if(pattern == 'patterns' || pattern == undefined){
+                            problemItems = await Problems.find({userId: uid}).sort({problem: -1}).limit(limit).skip((page - 1) * limit);
+                        }
+                        else{
+                            problemItems = await Problems.find({pattern: pattern, userId: uid}).sort({problem: -1}).limit(limit).skip((page - 1) * limit);
+                        }
+                    }    
+                }
+                else if(request.query.sortType == 'dateAsc' || request.query.sortType == 'dateDesc'){
+                    Problems.createIndexes({date: 1})
+                    if(request.query.sortType == 'dateAsc'){
+                        if(pattern == 'patterns' || pattern == undefined){
+                            problemItems = await Problems.find({userId: uid}).sort({date: 1}).limit(limit).skip((page - 1) * limit);
+                        }
+                        else{
+                            problemItems = await Problems.find({pattern: pattern, userId: uid}).sort({date: 1}).limit(limit).skip((page - 1) * limit);
+                        }
+                    }
+                    else{
+                        if(pattern == 'patterns' || pattern == undefined){
+                            problemItems = await Problems.find({userId: uid}).sort({date: -1}).limit(limit).skip((page - 1) * limit);
+                        }
+                        else{
+                            problemItems = await Problems.find({pattern: pattern, userId: uid}).sort({date: -1}).limit(limit).skip((page - 1) * limit);
+                        }
+                    }    
+                }
+            }
+            
+            response.render('problems.ejs', {problems: problemItems, pats: patterns})
         }catch(error){
             console.log(error)
         }
     },
     createProblems: async (request, response) => {
         try{
-            console.log(request.body.problemItem)
-            console.log(request.body.patternType)
-            console.log(request.body)
-            console.log(request.body.date)
-            console.log(request.body.link)
             await Problems.create({problem: request.body.problemItem, pattern: request.body.patternType,
             description: request.body.description, date: request.body.date, link: request.body.link, userId: request.user.id})
             console.log('Problem Added')
