@@ -142,4 +142,25 @@ module.exports = {
             console.log(error)
         } 
     },
+    // getEditProblem: async (request, response) => {
+    //     try{
+    //         console.log(request.body)
+    //         response.render('problemsEdit.ejs', {problems: problemItems, pats: patterns, problemID: request.body.problemIdS})
+    //     }
+    //     catch(error){
+    //         console.log(error)
+    //     } 
+    // },
+    // editProblem: async (request, response) => {
+    //     try{
+    //         console.log(request.body)
+    //         // await Problems.findOneAndUpdate(request.body.problemIdS, {problem: request.body.problemItem, pattern: request.body.patternType,
+    //         //     description: request.body.description, date: request.body.date, link: request.body.link}) //todoIdFromJSFile
+    //         // console.log('Edited Task')
+    //         // response.json('Edited it')
+    //     }
+    //     catch(error){
+    //         console.log(error)
+    //     } 
+    // }
 }
