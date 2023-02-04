@@ -75,7 +75,7 @@
                 <h3 class="notes"><%= el.description %></h3>
                 <h3 class="date"><%= moment(el.date).format('MMM D, YYYY') %></h3>
                 <a class="link" href="<%= el.link %>"><%= el.problem %></a>
-                <span class="edit">Edit</span>
+                <span class="edit"><a href="problems/editProblem/<%=el._id%>">Edit</a></span>
                 <span class="stopEdit" class="hidden">Stop</span>   
                 <span class="del">Delete</span>        
             </li>   

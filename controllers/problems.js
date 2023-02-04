@@ -1,4 +1,5 @@
-const Problems = require('../models/Problems')
+// const Problems = require('../models/Problems')
+const {Problems, editData, updateData} = require('../models/Problems')
 
 let problemItems
 let patterns = []
@@ -142,6 +143,32 @@ module.exports = {
             console.log(error)
         } 
     },
+    editData: async (request, response) => {
+        console.log(request.params)
+        let editId = request.params.id;
+        editData(editId, function(data){
+            response.render('problemsEdit.ejs', {userData: data});
+        })
+      },
+    updateData: async (request, response) => {
+        try{
+            console.log(request.params)
+            console.log(request.body)
+            await Problems.findByIdAndUpdate(request.params.id, {problem: request.body.problemItem, pattern: request.body.patternType,
+                description: request.body.description, date: request.body.date, link: request.body.link})
+            console.log('Problem Updated')
+            response.redirect('/problems')
+        }catch(error){
+            console.log(error)
+        } 
+        
+
+        // let inputData = request.body;
+        // let editId = request.params.id;
+        // updateData(inputData, editId, function(data){
+        //     response.redirect('/problems')
+        // })
+      }
     // getEditProblem: async (request, response) => {
     //     try{
     //         console.log(request.body)

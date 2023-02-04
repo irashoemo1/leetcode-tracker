@@ -27,4 +27,23 @@ const ProblemsSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Problems', ProblemsSchema)
+const Problems = mongoose.model('Problems', ProblemsSchema)
+
+module.exports = {
+    Problems,
+    editData: function(editId, callback){
+       var userData = Problems.findById(editId);
+       userData.exec(function(err, data){
+        if(err) throw err;
+        return callback(data);
+     })
+    },
+    updateData: function(inputData, editId, callback){            
+     userData = Problems.findByIdAndUpdate(editId, inputData);
+     userData.exec(function(err, data){
+       if (err) throw err;
+        return callback(data);
+     })
+  },
+}
+// module.exports = mongoose.model('Problems', ProblemsSchema)

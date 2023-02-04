@@ -11,8 +11,8 @@ router.get('/sorted', problemsController.getSortedProblems)
 
 router.delete('/deleteProblem', problemsController.deleteProblem)
 
-// router.get('/editProblem/:id', problemsController.getEditProblem)
+router.get('/editProblem/:id', problemsController.editData)
 
-// router.put('/editProblem', problemsController.editProblem)
+router.post('/editProblem/:id', problemsController.updateData)
 
 module.exports = router
