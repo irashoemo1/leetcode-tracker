@@ -46,7 +46,7 @@ h1, h2.add, form, form + h2{
     padding-left: .15em;
 }
 
-h2.problem, h3.pattern, h3.notes, span.del, .date, a.link, span.edit{
+h2.problem, h3.pattern, h3.notes, span.delete, .date, a.link, span.edit{
     display: inline-block;
     margin: 0;
     vertical-align: top;
@@ -84,8 +84,19 @@ h3.notes{
 a.link{
     width: 7.5%;
     height: 100%;
-    /* margin-left: 1.5em; */
+    margin-right: 1em;
 }
+
+.description{
+    height: 3.5em;
+    padding: 10px;
+    vertical-align: bottom;
+    width: 15em;
+}
+
+/* form.createProblems > input{
+    vertical-align: top;
+} */
 
 @media(max-width: 850px){
     h1, h2.add, form, form + h2, ul{
@@ -108,11 +119,6 @@ a.link{
     
 } 
 
-
-li span.del, span.edit{
-    /* width: 2.5%; */
-    margin-left: .5em;
-}
 
 .login-signup{
     display: flex;

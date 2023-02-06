@@ -15,15 +15,15 @@
     <button class="back-button"><a class="back-button-link" href="/problems">Back</a></button>
     <!-- Make the date filter able to do range of dates, make a pagination for the problems, figure out how to get the patterns
         to make the sort list to be constant and do bootstrap to make it look better -->
-    <h2 class="add">Add A Problem:</h2>
+    <h2 class="add">Update the Selected Problem:</h2>
     
     <!-- Notes is description -->
     <form class="createProblems" action="/problems/editProblem/<%=userData.id %>" method="POST">
-        <input type="text" placeholder="Enter Problem Item" name="problemItem">
-        <input type="text" placeholder="Enter Pattern Type" name="patternType">
-        <input type="text" placeholder="Enter Notes" name="description">
-        <input type="text" placeholder="Enter Date" name="date">
-        <input type="text" placeholder="Enter Link" name="link">
+        <input type="text" placeholder="Enter Problem Item" name="problemItem" value="<%=userData.problem %>">
+        <input type="text" placeholder="Enter Pattern Type" name="patternType" value="<%=userData.pattern %>">
+        <input type="text" placeholder="Enter Date" name="date" value="<%=userData.date %>">
+        <input type="text" placeholder="Enter Link" name="link" value="<%=userData.link %>">
+        <textarea class="description" type="text" placeholder="Enter Notes" name="description" ><%=userData.description %></textarea>
         <input type="submit">
     </form>
 

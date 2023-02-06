@@ -19,9 +19,9 @@
     <form class="createProblems" action="/problems/createProblems" method="POST">
         <input type="text" placeholder="Enter Problem Item" name="problemItem">
         <input type="text" placeholder="Enter Pattern Type" name="patternType">
-        <input type="text" placeholder="Enter Notes" name="description">
         <input type="text" placeholder="Enter Date" name="date">
         <input type="text" placeholder="Enter Link" name="link">
+        <textarea class="description" type="text" placeholder="Enter Notes" name="description"></textarea>
         <input type="submit">
     </form>
 
@@ -66,7 +66,6 @@
         <li class="link">Link</li>
     </ul>
 
-    
     <ul class="problemItems">
         <% problems.forEach(el => { %>
             <li contenteditable="false" class="problemItem" data-id="<%=el._id%>">
@@ -75,9 +74,13 @@
                 <h3 class="notes"><%= el.description %></h3>
                 <h3 class="date"><%= moment(el.date).format('MMM D, YYYY') %></h3>
                 <a class="link" href="<%= el.link %>"><%= el.problem %></a>
-                <span class="edit"><a class="edit-link" href="problems/editProblem/<%=el._id%>">Edit</a></span>
+                <% if(page == 1){ %>
+                    <a class="edit-link" href="problems/editProblem/<%=el._id%>"><button class="edit">Edit</button></a>
+                <% }else{ %>
+                    <a class="edit-link" href="editProblem/<%=el._id%>"><button class="edit">Edit</button></a>
+                <% }%>   
                 <!-- <span class="stopEdit" class="hidden">Stop</span>    -->
-                <span class="del">Delete</span>        
+                <button class="del"><span class="delete">Delete</span></button>     
             </li>   
         <% }) %>
     </ul>

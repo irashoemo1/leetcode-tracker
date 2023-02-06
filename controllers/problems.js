@@ -49,7 +49,7 @@ module.exports = {
                 }
                 // console.log(request)
             }
-            response.render('problems.ejs', {problems: problemItems, pats: patterns})
+            response.render('problems.ejs', {problems: problemItems, pats: patterns, page: page})
         }catch(error){
             console.log(error)
         }
@@ -144,7 +144,6 @@ module.exports = {
         } 
     },
     editData: async (request, response) => {
-        console.log(request.params)
         let editId = request.params.id;
         editData(editId, function(data){
             response.render('problemsEdit.ejs', {userData: data});

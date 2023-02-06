@@ -20,12 +20,12 @@ Array.from(stopEditText).forEach((element) => {
     // element.addEventListener('click', editProblem)    
 })
 
-
+// if page is the first one so no parameters problems/editProblem/<%=el._id%>. else  editProblem/<%=el._id%>
 async function deleteProblem(){
     const problemId = this.parentNode.dataset.id;
 
     try{
-        const response = await fetch('problems/deleteProblem',
+        const response = await fetch('deleteProblem',
         {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
